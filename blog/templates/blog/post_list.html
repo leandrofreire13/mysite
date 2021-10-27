@@ -1,20 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Blog do Leandro - Feito em Django</title>
-</head>
-<body>
-    <div>
-        <h1><a href="/">Blog</a></h1>
-    </div>
+{% extends 'blog/base.html' %}
 
+{% block content %}
     {% for post in posts %}
-    <div>
-        <p>Published: {{ post.published_date }}</p>
-        <p>{{ post.titulo }}</p>
-        <p>{{ post.texto|linebreaksbr }}</p>
-    </div>
+        <div class="post">
+            <h2><a href="">{{ post.titulo }}</a></h2>
+            <div class="date">
+                {{ post.published_date }}
+            </div>
+            <p>{{ post.texto|linebreaksbr }}</p>
+        </div>
     {% endfor %}
-</body>
-</html>
+{% endblock %}
