@@ -3,18 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <title>Blog do Leandro - Feito em Django</title>
+    <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="{% static 'css/blog.css' %}">
 
 </head>
 <body>
-    {% for post in posts %}
-    <div>
-        <h1>{{ post.titulo }}</h1>
-        <p>Published: {{ post.published_date }}</p>
-        <p>{{ post.texto|linebreaksbr }}</p>
+    <div class="page-header">
+        <h1><a href="/">Blog do Leandro</a></h1>
     </div>
-    {% endfor %}
+    <div class="content container">
+    <div class="row">
+        <div class="col-md-8">
+            {% for post in posts %}
+                <div class="post">
+                    <h2><a href="">{{ post.titulo }}</a></h2>
+                    <div class="date">
+                        <p>published: {{ post.published_date }}</p>
+                    </div>
+                    <p>{{ post.texto|linebreaksbr }}</p>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
 </body>
 </html>
